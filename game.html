@@ -6,14 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Springs and Curly Bois</title>
 </head>
-<button onclick="newGame()"</button>New Game</button>{
- 
-<body>
+<center><button onclick="newGame()">New Game</button></center>
+<p id="test"></p>
+<body>               
+"Welcome to Springs and Curly Bois!"
     
 </body>
 
-</html>
+              
+</html> 
+
 <script>
-function(createGrid{
-}
+// Function that builds a grid in the "container"
+function createGrid(x) {
+    for (var rows = 0; rows < x; rows++) {
+        for (var columns = 0; columns < x; columns++) {
+            $("#container").append(<div class='grid'></div>);
+        };
+    };
+    $(".grid").width(960/x);
+    $(".grid").height(960/x);
+};
+
+// Function that clears the grid
+function clearGrid(){
+    $(".grid").remove();
+};
+
+// Function that prompts the user to select the number of boxes in a new grid
+// the function then also creates that new grid
+function refreshGrid(){
+    var z = prompt("Choose a token");
+    clearGrid();
+    createGrid(z);
+};
+
+
+// allows the click of a button to prompt the user to create a new grid
+$(document).ready(function() {
+    createGrid(15);
+
+});
+
+
 </script>
+
+</html>
