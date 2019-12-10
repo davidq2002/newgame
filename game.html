@@ -5,15 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Springs and Curly Bois</title>
+        <style>
+        th, td {
+                background-repeat: no-repeat;
+                background-size: contain;
+        }
+
+        .swap {
+                background-image: url("game_tokens/swap_space.png");
+        }
+        .spring {
+                background-image: url("game_tokens/spring_space.png");
+        }
+        .boi{
+                background-image: url("game_tokens/curly_space.png")
+        }
+        
+        
+        
+        
+        </style>
+
 </head>
 
 <center><button onclick="newGame()">New Game</button></center>
 <p id="test"></p>
 
-<center><h4><a href="file:///C:/Users/574358/Downloads/Game%20Rules.pdf" target=_blank">How to play?</a></h4></center>
+<center><h4><a href="rules/Game-Rules.pdf" target=_blank">How to play?</a></h4></center>
 <table  align="center" bgcolor="white" width="1000" border = "5">
   <tr  align = " center " height = "90">
-        <td>91</td>  
+        <td class="swap"></td>  
         <td>92</td>    <td>93 </td>  
         <td> 93</td>    <td> 95</td>  
         <td> 94</td>    <td>97 </td>  
@@ -44,7 +65,7 @@
                         <td> 68</td>    <td> 69</td>  
                         <td> 70</td>
                         <tr  align = " center " height = "90">
-                                <td> 51</td>  
+                                <td class ="spring"> </td>  
                                 <td> 52</td>    <td>53 </td>  
                                 <td> 54</td>    <td>55 </td>  
                                 <td> 56</td>    <td>57 </td>  
@@ -67,7 +88,7 @@
                                                 <tr  align = " center " height = "90">
                                                         <td> 21</td>  
                                                         <td>22 </td>    <td>23</td>  
-                                                        <td>24 </td>    <td> 25</td>  
+                                                        <td class = "spring"></td>    <td> 25</td>  
                                                         <td> 26</td>    <td>27 </td>  
                                                         <td> 28</td>    <td>29</td>  
                                                         <td> 30</td>
@@ -76,41 +97,36 @@
                                                                 <td> 12</td>    <td> 13</td>  
                                                                 <td> 14</td>    <td>15 </td>  
                                                                 <td> 16</td>    <td>17 </td>  
-                                                                <td>18 </td>    <td> 19</td>  
+                                                                <td>18 </td>    <td class = "boi"></td>  
                                                                 <td> 20</td>
                                                                 <tr  align = " center " height = "90">
                                                                         <td>1</td>  
-                                                                        <td>2</td>    <td>3</td>  
+                                                                        <td>2</td>    <td class="spring"></td>  
                                                                         <td>4</td>    <td>5</td>  
                                                                         <td>6</td>    <td>7</td>  
                                                                         <td>8</td>    <td>9</td>  
-                                                                        <td>10</td>
-                                                                                                                                                                                                                                                                                                
+                                                                        <td class="spring" ></td>
+                                                                        
+                                                                        
+
+                                                                       
 
 
 </table>
 
-
+<script>
+        // function endGame() {
+        // if (player = 99)
+        //         alert"YOU WIN";
+        // } else {
+        //         alert"GAME OVER";
+        // }
+        
+        
+        </script>
 
 </body>
 </html>
-
-
-<script>
-// function endGame() {
-// if (player = 99)
-//         alert"YOU WIN";
-// } else {
-//         alert"GAME OVER";
-// }
-
-
-</script>
-
-
-        
-</style.css>
-
 
 
 
