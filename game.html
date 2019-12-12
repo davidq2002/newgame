@@ -6,6 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Springs and Curly Bois</title>
         <style>
+
+* {
+  font-family: fantasy;
+  text-align: center;
+}
+button {
+  background-color: rgb(10, 18, 150);
+  border-radius: 6px;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  text-transform: uppercase;
+  width: 200px;
+  cursor: pointer;
+}
+#placeholder {
+  height: 100px;
+  width: 100px;
+  padding: 50px;
+  margin: 50px auto;
+  border: 1px solid gray;
+  border-radius: 10px;  
+  font-size:100px;
+}
+                
         th, td {
                 background-repeat: no-repeat;
                 background-size: contain;
@@ -41,10 +66,30 @@
 
 </head>
 
+<html>
+
+
+ 
+<body>
+  <p id="placeholder">
+  
+  </p>
+  <button id="button">Roll Dice</button>
+  <script src="dice.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
+
+
+
+
 <center><button onclick="newGame()">New Game</button></center>
 <p id="test"></p>
 
-<center><h4><a href="rules/Game-Rules.pdf" target=_blank">How to play?</a></h4></center>
+
+
+
+<center><h4><a href="rules/Game-Rules.pdf" target=_blank">LEARN THE RULES HERE</a></h4></center>
 <table  align="center" bgcolor="white" width="1000" border = "5">
   <tr  align = " center " height = "90">
         <td class="finish" ></td>  
@@ -59,21 +104,21 @@
 <tr  align = " center " height = "90">
         <td>81 </td>  
         <td>82 </td>    <td> 83</td>  
-        <td> 84</td>    <td> 85</td>  
+        <td> 84</td>    <td class="risky"></td>  
         <td> 86</td>    <td> 87</td>  
         <td class ="boi">-5</td>    <td> 89</td>  
         <td>90 </td>
 <tr  align = " center " height = "90">
-                <td class ="swap"></td>  
-                <td> 79</td>    <td> 78</td>  
+                <td>80</td>  
+                <td class="swap"></td>    <td> 78</td>  
                 <td> 77</td>    <td class="boi">-5</td>  
                 <td> 75</td>    <td> 74</td>  
-                <td>73</td>    <td> 72</td>  
+                <td>73</td>    <td class ="favor"></td>  
                 <td> 71</td>
                 <tr  align = " center " height = "90">
                         <td> 61</td>  
                         <td> 62</td>    <td>63 </td>  
-                        <td> 64</td>    <td> 65</td>  
+                        <td class="favor"></td>    <td> 65</td>  
                         <td> 66</td>    <td>67 </td>  
                         <td> 68</td>    <td> 69</td>  
                         <td> 70</td>
@@ -95,8 +140,8 @@
                                                 <td> 40</td>  
                                                 <td> 39</td>    <td> 39</td>  
                                                 <td> 37</td>    <td> 36</td>  
-                                                <td> 35</td>    <td class ="spring"></td>  
-                                                <td> 33</td>    <td> 32</td>  
+                                                <td> 35</td>    <td >34</td>  
+                                                <td class ="spring"></td>    <td> 32</td>  
                                                 <td>31 </td>
                                                 <tr  align = " center " height = "90">
                                                         <td> 21</td>  
@@ -119,7 +164,7 @@
 <td>6</td>    <td>7</td>  
 <td>8</td>    <td>9</td>  
 <td>10</td>
-                                                                        
+
                                                                         
 
                                                                        
@@ -128,6 +173,37 @@
 </table>
 
 <script>
+
+var dice = {
+  sides: 6,
+  roll: function () {
+    var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+    return randomNumber;
+  }
+}
+
+
+
+//Prints dice roll to the page
+
+function printNumber(number) {
+  var placeholder = document.getElementById('placeholder');
+  placeholder.innerHTML = number;
+}
+
+var button = document.getElementById('button');
+
+button.onclick = function() {
+  var result = dice.roll();
+  printNumber(result);
+};
+
+
+
+
+function newGame() {
+  document.getElementById("New Game").innerHTML = window.location = "file:///H:/newgame/game.html";
+}
 
 
 
