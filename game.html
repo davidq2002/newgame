@@ -71,14 +71,10 @@ button {
 
  
 <body>
-  <p id="placeholder">
-  
-  </p>
-  <button id="button">Roll Dice</button>
-  <script src="dice.js"></script>
-  <script src="ui.js"></script>
-</body>
-</html>
+
+
+
+
 
 
 
@@ -173,10 +169,18 @@ button {
 
 
 </table>
-
+  <p id="placeholder">
+  
+  </p>
+  <button id="button">Roll Dice</button>
+  <script src="dice.js"></script>
+  <script src="rsikyDice.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
 <script>
 
-<
+
 
 
 
@@ -187,6 +191,7 @@ var dice = {
     return randomNumber;
   }
 }
+
 
 
 
@@ -207,42 +212,19 @@ button.onclick = function() {
 
 
 
-function newGame() {
-  document.getElementById("New Game").innerHTML = window.location = "file:///H:/newgame/game.html";
-}
 
 
 
-function component(width, height,color x, y){
-        this.width = width;
-        this.height= height;
-        this.speedX = 1;
-        this.speedY = 1;
-        this.x = x;
-        this.y = y;
-        this.update = function() {
-                ctx = gameAreaTest.context;
-                ctx.fillStyle = color;
-                ctx.fillRect(this.x, this.y, this.width, this.height);
-        }
-        this,newPos = function(){
-                this.x += this.speedX;
-                this.y += this.speedY;
-        }
-}
 
-function updateGameArea(){
-        myGameArea.clear();
-        myGamePiece.newPos();
-        myGamePiece.update();
-}
 
-function moveRight() {
-        myGamePiece.speedX -= 1;
-}
+
+
+
+
 
 </script>
-<button onclick="moveRight()">Right</button>
+
+
 </body>
 </html>
 
