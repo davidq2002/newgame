@@ -138,8 +138,10 @@ button {
                                         <td>50</td>
                                         <tr  align = " center " height = "90">
                                                 <td> 40</td>  
-                                                <td> 39</td>    <td> 39</td>  
-                                                <td> 37</td>    <td> 36</td>  
+                                                <td> 39</td>    <td> 38</td>  
+                                                <td> 37</td>    <td class="risky">
+
+                                                </td>  
                                                 <td> 35</td>    <td >34</td>  
                                                 <td class ="spring"></td>    <td> 32</td>  
                                                 <td>31 </td>
@@ -152,7 +154,7 @@ button {
                                                         <td> 30</td>
                                                         <tr  align = " center " height = "90">
                                                                 <td> 20</td>  
-                                                                <td> 19</td>    <td class="risky"></td>  
+                                                                <td> 19</td>    <td >18</td>  
                                                                 <td> 17</td>    <td>16 </td>  
                                                                 <td> 15</td>    <td>14 </td>  
                                                                 <td>13 </td>    <td class = "boi">-5</td>  
@@ -173,6 +175,10 @@ button {
 </table>
 
 <script>
+
+<
+
+
 
 var dice = {
   sides: 6,
@@ -207,7 +213,36 @@ function newGame() {
 
 
 
+function component(width, height,color x, y){
+        this.width = width;
+        this.height= height;
+        this.speedX = 1;
+        this.speedY = 1;
+        this.x = x;
+        this.y = y;
+        this.update = function() {
+                ctx = gameAreaTest.context;
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+        this,newPos = function(){
+                this.x += this.speedX;
+                this.y += this.speedY;
+        }
+}
+
+function updateGameArea(){
+        myGameArea.clear();
+        myGamePiece.newPos();
+        myGamePiece.update();
+}
+
+function moveRight() {
+        myGamePiece.speedX -= 1;
+}
+
 </script>
+<button onclick="moveRight()">Right</button>
 </body>
 </html>
 
