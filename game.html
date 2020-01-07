@@ -180,7 +180,39 @@ button {
 </html>
 <script>
 
+const elem = document.querySelectorAll('td');
+const board = newBoard(elem);
 
+function newBoard(board){
+        let arr= [],
+            curNum = board.length;
+
+        for(let i = 0; i < board.length / 10; i++){
+        console.log(`Iteration: ${i}, CurNum: ${curNum}`);
+                curNum--
+                if(i % 2 != 0){
+
+                        for(let j = 10; j > 0; j--){
+                                arr.push(curNum);
+                                curNum--
+                        }
+                
+                } else {
+                        let tempArr = [];
+                        for(let j = 10; j > 0; j--){
+                                tempArr.push(curNum)
+                                curNum--
+                        }
+                        tempArr = tempArr.reverse();
+                        arr = arr.concat(tempArr); 
+
+                }
+        }
+        return arr
+
+}
+test = board[90]
+elem[test].innerHTML = "Hi David"; // result is off by 10 at end and off by 1 throughout.
 
 
 
