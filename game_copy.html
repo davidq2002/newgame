@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Springs and Curly Bois</title>
+        <style>
+
+* {
+  font-family: fantasy;
+  text-align: center;
+}
+button {
+  background-color: rgb(10, 18, 150);
+  border-radius: 6px;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  text-transform: uppercase;
+  width: 200px;
+  cursor: pointer;
+}
+#placeholder {
+  height: 100px;
+  width: 100px;
+  padding: 50px;
+  margin: 50px auto;
+  border: 1px solid gray;
+  border-radius: 10px;  
+  font-size:100px;
+}
+                
+        th, td {
+                background-repeat: no-repeat;
+                background-size: contain;
+        }
+
+        .swap {
+                background-image: url("game_tokens/swap_space.png");
+        }
+        .spring {
+                background-image: url("game_tokens/spring_space.png");
+        }
+        .boi{
+                background-image: url("game_tokens/curly_space.png")
+        }
+        .skip{
+                background-image: url("game_tokens/skip_space.png")
+        }
+        .finish{
+                background-image: url("game_tokens/finish.png")
+        }
+        .start{
+                background-image: url("game_tokens/start_go.png");
+        }
+        .risky{
+                background-image: url("game_tokens/risky_space.png");
+        }
+        .favor{
+                background-image: url("game_tokens/favor_space.png");
+        }
+        
+        
+        </style>
+
+</head>
+
+<html>
+
+
+ 
+<body>
+
+
+
+
+
+
+
+
+<center><button onclick="newGame()">New Game</button></center>
+<p id="test"></p>
+
+
+
+
+<center><h4><a href="rules/Game-Rules.pdf" target=_blank">LEARN THE RULES HERE</a></h4></center>
+<!-- <table  align="center" bgcolor="white" width="1000" border = "5">
+  <tr  align = " center " height = "90">
+        <td></td>  
+        <td></td>    <td></td>  
+        <td></td>    <td></td>  
+        <td></td>    <td></td>  
+        <td></td>    <td></td>  
+        <td></td>
+
+
+
+<tr  align = " center " height = "90">
+        <td></td>  
+        <td></td>    <td></td>  
+        <td></td>    <td></td>  
+        <td></td>    <td></td>  
+        <td></td>    <td></td>  
+        <td></td>
+<tr  align = " center " height = "90">
+                <td></td>  
+                <td></td>    <td></td>  
+                <td></td>    <td></td>  
+                <td></td>    <td></td>  
+                <td></td>    <td></td>  
+                <td></td>
+                <tr  align = " center " height = "90">
+                        <td></td>  
+                        <td></td>    <td></td>  
+                        <td></td>    <td></td>  
+                        <td></td>    <td></td>  
+                        <td></td>    <td></td>  
+                        <td></td>
+                        <tr  align = " center " height = "90">
+                                <td></td>  
+                                <td></td>    <td></td>  
+                                <td></td>    <td></td>  
+                                <td></td>    <td></td>  
+                                <td></td>    <td></td>  
+                                <td></td>
+                                <tr  align = " center " height = "90">
+                                        <td></td>  
+                                        <td></td>    <td></td>  
+                                        <td></td>    <td></td>  
+                                        <td></td>    <td></td>  
+                                        <td></td>    <td></td>  
+                                        <td></td>
+                                        <tr  align = " center " height = "90">
+                                                <td></td>  
+                                                <td></td>    <td></td>  
+                                                <td></td>    <td></td>  
+                                                <td></td>    <td></td>  
+                                                <td></td>    <td></td>  
+                                                <td></td>
+                                                <tr  align = " center " height = "90">
+                                                        <td></td>  
+                                                        <td></td>    <td></td>  
+                                                        <td></td>    <td></td>  
+                                                        <td></td>    <td></td>  
+                                                        <td></td>    <td></td>  
+                                                        <td></td>
+                                                        <tr  align = " center " height = "90">
+                                                                <td></td>  
+                                                                <td></td>    <td></td>  
+                                                                <td></td>    <td></td>  
+                                                                <td></td>    <td></td>  
+                                                                <td></td>    <td></td>  
+                                                                <td></td>
+                                                                <tr  align = " center " height = "90">
+<td></td>                                                                      
+<td></td>    <td></td>  
+<td></td>    <td></td>  
+<td></td>    <td></td>  
+<td></td>    <td></td>  
+<td></td>
+
+                                                                        
+
+                                                                       
+
+
+</table> -->
+  <p id="placeholder">
+  
+  </p>
+  <button id="button">Roll Dice</button>
+  <script src="dice.js"></script>
+  <script src="rsikyDice.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
+<script>
+
+const elem = document.querySelectorAll('td');
+const board = newBoard(elem);
+
+function newBoard(board){
+        let arr= [],
+            curNum = board.length;
+
+        for(let i = 0; i < board.length / 10; i++){
+        console.log(`Iteration: ${i}, CurNum: ${curNum}`);
+                curNum--
+                if(i % 2 != 0){
+
+                        for(let j = 10; j > 0; j--){
+                                arr.push(curNum);
+                                curNum--
+                        }
+                
+                } else {
+                        let tempArr = [];
+                        for(let j = 10; j > 0; j--){
+                                tempArr.push(curNum)
+                                curNum--
+                        }
+                        tempArr = tempArr.reverse();
+                        arr = arr.concat(tempArr); 
+
+                }
+        }
+        return arr
+
+}
+test = board[90]
+elem[test].innerHTML = ""; // result is off by 10 at end and off by 1 throughout.
+
+
+
+var dice = {
+  sides: 6,
+  roll: function () {
+    var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+    return randomNumber;
+  }
+}
+
+
+
+
+//Prints dice roll to the page
+
+function printNumber(number) {
+  var placeholder = document.getElementById('placeholder');
+  placeholder.innerHTML = number;
+}
+
+var button = document.getElementById('button');
+
+button.onclick = function() {
+  var result = dice.roll();
+  printNumber(result);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
