@@ -86,74 +86,74 @@ button {
 
 
 <center><h4><a href="rules/Game-Rules.pdf" target=_blank">LEARN THE RULES HERE</a></h4></center>
-<table  align="center" bgcolor="white" width="1000" border = "5">
-  <tr  align = " center " height = "90">
-        <td class="start" >0</td>  
+<table  align="center" bgcolor="white" width="1010" border = "5">
+  <tr  align = " center " height = "100">
+        <td class="start" ></td>  
         <td class="favor">1</td>    <td >2</td>  
         <td class=>3</td>    <td class=>4</td>  
         <td class="risky">5</td>    <td class="spring">6</td>  
-        <td class="favor">7</td>    <td class=>8</td>  
+        <td class="skip">7</td>    <td class=>8</td>  
         <td class=> 9</td>
 
 
 
-<tr  align = " center " height = "90">
+<tr  align = " center " height = "100">
         <td>19 </td>  
-        <td>18 </td>    <td> 17</td>  
+        <td class="spring">18 </td>    <td> 17</td>  
         <td> 16</td>    <td class="boi">15</td>  
         <td> 14</td>    <td>13</td>  
         <td class =>12</td>    <td> 11</td>  
         <td>10 </td>
-<tr  align = " center " height = "90">
+<tr  align = " center " height = "100">
                 <td>20</td>  
-                <td >21</td>    <td> 22</td>  
+                <td >21</td>    <td class="skip"> 22</td>  
                 <td> 23</td>    <td class=>24</td>  
                 <td>25</td>    <td> 26</td>  
                 <td>27</td>    <td class ="favor">28</td>  
                 <td>29</td>
-                <tr  align = " center " height = "90">
+                <tr  align = " center " height = "100">
                         <td>39</td>  
                         <td class="favor"> 38</td>    <td>37</td>  
                         <td class=>36</td>    <td class="boi"> 35</td>  
                         <td> 34</td>    <td>33 </td>  
                         <td class="risky"> 32</td>    <td> 31</td>  
                         <td> 30</td>
-                        <tr  align = " center " height = "90">
+                        <tr  align = " center " height = "100">
                                 <td class =>40</td>  
                                 <td> 41</td>    <td>42</td>  
                                 <td class="spring"> 43</td>    <td>44</td>  
                                 <td > 45</td>    <td>46</td>  
                                 <td class="swap"> 47</td>    <td>48 </td>  
                                 <td class =>49</td>
-                                <tr  align = " center " height = "90">
+                                <tr  align = " center " height = "100">
                                         <td> 59</td>  
                                         <td class="swap"> 58</td>    <td >57</td>  
                                         <td> 56</td>    <td> 55</td>  
                                         <td> 54</td>    <td class="favor">53</td>  
                                         <td>52</td>    <td> 51</td>  
-                                        <td>50</td>
-                                        <tr  align = " center " height = "90">
+                                        <td class="spring">50</td>
+                                        <tr  align = " center " height = "100">
                                                 <td> 60</td>  
                                                 <td class="spring"> 61</td>    <td> 62</td>  
                                                 <td> 63</td>    <td >64</td>  
                                                 <td class="boi"> 65</td>    <td >66</td>  
                                                 <td>67</td>    <td> 68</td>  
                                                 <td>69 </td>
-                                                <tr  align = " center " height = "90">
+                                                <tr  align = " center " height = "100">
                                                         <td>79</td>  
                                                         <td>78</td>   <td>77</td>  
                                                         <td>76</td>    <td class="favor"> 75</td>  
                                                         <td> 74</td>    <td>73</td>  
                                                         <td> 72</td>    <td class="spring">71</td>  
                                                         <td> 70</td>
-                                                        <tr  align = " center " height = "90">
+                                                        <tr  align = " center " height = "100">
                                                                 <td> 80</td>  
                                                                 <td> 81</td>    <td >82</td>  
                                                                 <td class="boi"> 83</td><td class="risky">84</td>  
                                                                 <td> 85</td>    <td>86</td>  
                                                                 <td>87</td>    <td >88</td>  
                                                                 <td>89</td>
-                                                                <tr  align = " center " height = "90">
+                                                                <tr  align = " center " height = "100">
 <td class="finish"></td>                                                                      
 <td>99</td>    <td class="skip">97</td>  
 <td class="swap">96</td>    <td class="skip">95</td>  
@@ -240,17 +240,40 @@ button.onclick = function() {
   printNumber(result);
 };
 
+function allowdrop(ev){
+        ev.preventDefault();
+}
 
+function drag();{
+        ev.dataTransfer.setData("test", ev.target.id);
+}
 
+function drop(ev){
+        ev.preventDefault();
+        var data = ev.datatransfer.getData("test");
+        ev.targeet.appendChild(document.getElementById(data));
+}
 
-
-
-
-
-
+#div1, #div2{
+        float: bottom;
+        wdith: 100px;
+        height:35px;
+        margin: 10px;
+        padding:10px;
+        boarder:1px solid black;
+}
 
 
 </script>
+<div id="div1" onDrop="drop(event)"
+ondragover="allowDrop(event)">
+        <img src="game_tokens/yin_yang.png" draggable="true"
+ondragstart="drag(event)" id="drag1" width="50"
+height="50">
+</div>
+
+<div id="div2" ondrop="drop(event)"
+ondragover="allowDrop(event)"></div>
 
 
 </body>
